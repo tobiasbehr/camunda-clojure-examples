@@ -8,7 +8,7 @@
                                    :db-schema-update "create-drop"
                                    :job-executor-activate true}))
 
-(def deployment (repository/deploy! engine "Deployment 1" ["Process_2.bpmn"]))
+(def deployment (repository/deploy! engine "Deployment 1" ["processes/Process_2.bpmn"]))
 
 (defn all-deployments []
   [deployment])

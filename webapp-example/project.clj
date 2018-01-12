@@ -27,7 +27,7 @@
                  [selmer "1.11.3"]
                  [org.camunda.bpm/camunda-engine "7.8.0"]
                  [com.h2database/h2 "1.4.196"]
-                 [camunda-clojure "0.1.0-SNAPSHOT"]
+                 [camunda-clojure "0.1.0"]
                  ]
 
   :min-lein-version "2.0.0"
