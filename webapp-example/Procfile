@@ -1,0 +1,1 @@
+web: java -cp target/uberjar/webapp-example.jar clojure.main -m webapp-example.core

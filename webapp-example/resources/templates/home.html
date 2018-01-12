@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  
+  <div class="col-sm-6">
+    <h3>Available tasks</h3>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Business Key</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        {% for task in tasks %} 
+        <tr>
+          <td>{{task.id}}</td>
+          <td>{{task.name}}</td>
+          <td>{{task.business-key}}</td>
+          <td>
+            <form method="post">
+              {% csrf-field %}
+              <input type="hidden" name="task-id" value={{task.id}} />
+              <button name="action" value="complete-task">Complete!</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>  
+  <div class="col-sm-6">
+    <h3>Deployed Process Definitions</h3>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        {% for process-definition in process-definitions %} 
+        <tr>
+          <td>{{process-definition.id}}</td>
+          <td>{{process-definition.key}}</td>
+          <td>
+            <form method="post">
+              {% csrf-field %}
+              <input type="text" placeholder="Business Key" name="business-key" required />
+              <input type="hidden" name="process-definition-key" value={{process-definition.key}} />
+              <button name="action" value="start-process">Start!</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>  
+  
+</div>
+{% endblock %}
